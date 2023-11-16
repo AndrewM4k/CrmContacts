@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Contacts</a>
+      <button class="navbar-toggler" type="button" (click)="open()" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div *ngIf="model" class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"></a>
+          </li>
+        </ul>
+        
+        <form #AddingForm="ngForm" name= "somename" class="d-flex" (ngSubmit)="adding()" autocomplete="off">
+          <input 
+                name="name"
+                [(ngModel)]="model.Name"
+                class="form-control me-2" 
+                type="text" 
+                required
+                minlength="4"
+                placeholder="Name">
+          <input 
+                name="JobTitle"
+                [(ngModel)]="model.JobTitle"
+                class="form-control me-2" 
+                type="text" 
+                required
+                minlength="4"
+                placeholder="JobTitle">
+          <input 
+                name="date"
+                [(ngModel)]="model.BirthDate"                
+                class="form-control me-2" 
+                required
+                minlength="4"
+                type="date" > 
+          <input 
+                name="MobilePhone"
+                [(ngModel)]="model.MobilePhone"                
+                class="form-control me-2" 
+                required
+                minlength="4"
+                type="text" 
+                placeholder="MobilePhone">
+          <button class="btn btn-outline-success" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="newModal" tabindex="-1" aria-labelledby="newModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newModal">New contact</h5>
+            <button type="button" class="btn-close" (click)="close()" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+            <form #AddingForm="ngForm" name= "somename" class="d-flex" (ngSubmit)="adding()" autocomplete="off">
+              <input 
+                    name="name"
+                    [(ngModel)]="model.Name"
+                    class="form-control me-2" 
+                    required
+                    minlength="4"
+                    type="text" 
+                    placeholder="Name">
+              <input 
+                    name="JobTitle"
+                    [(ngModel)]="model.JobTitle"
+                    class="form-control me-2" 
+                    required
+                    minlength="4"
+                    type="text" 
+                    placeholder="JobTitle">
+              <input 
+                    name="date"
+                    [(ngModel)]="model.BirthDate"                
+                    class="form-control me-2" 
+                    required
+                    minlength="4"
+                    type="date" > 
+              <input 
+                    name="MobilePhone"
+                    [(ngModel)]="model.mobilePhone"               
+                    class="form-control me-2" 
+                    type="text" 
+                    required
+                    minlength="4"
+                    placeholder="Phone">
+              <button class="btn btn-outline-success" (click)="close()" type="submit">Save</button>
+            </form>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="close()" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
